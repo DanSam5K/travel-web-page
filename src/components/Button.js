@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './Button.css';
 
 const STYLES = ['btn--primary', 'btn--outline'];
 const SIZES = ['btn--medium', 'btn--large'];
 
-export const Button = ({
+const Button = ({
   children,
-  type,
   onClick,
   buttonStyle,
   buttonSize,
@@ -22,10 +22,19 @@ export const Button = ({
       <button
         className={`btn ${checkButtonStyle} ${checkButtonSize}`}
         onClick={onClick}
-        type={type}
+        type="button"
       >
         {children}
       </button>
     </Link>
   );
 };
+
+Button.propTypes = {
+  children: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired,
+  buttonStyle: PropTypes.isRequired,
+  buttonSize: PropTypes.isRequired,
+};
+
+export default Button;
